@@ -1,7 +1,8 @@
-require "rulers/version"
-require "rulers/routing"
-require "rulers/util"
-require "rulers/dependencies"
+require 'rulers/version'
+require 'rulers/routing'
+require 'rulers/util'
+require 'rulers/dependencies'
+require 'rulers/controller'
 
 module Rulers
   class Application
@@ -22,16 +23,7 @@ module Rulers
         [text]]
       rescue Exception
         [500, {'Content-Type' => 'text/html'}, ['ERROR']]
-    end
-  end
-end
-  class Controller
-    def initialize(env)
-      @env = env
-    end
-
-    def env
-      @env
+      end
     end
   end
 end
