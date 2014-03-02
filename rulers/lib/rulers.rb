@@ -21,8 +21,9 @@ module Rulers
       text = controller.send(act)
       [200, {'Content-Type' => 'text/html'},
         [text]]
-      rescue Exception
-        [500, {'Content-Type' => 'text/html'}, ['ERROR']]
+      rescue Exception => e
+        error = e.inspect + "\n" + e.backtrace.join("\n")
+        [500, {'Content-Type' => 'text/text'}, [error]]
       end
     end
   end
